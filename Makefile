@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/12 19:26:42 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/12 19:45:08 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,21 +67,23 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
+all: $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(OBJSBONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
-so: $(OBJS) $(OBJSBONUS)
-	$(CC) -nostartfiles -fPIC -I$(HEADERS) $(CFLAGS) $(SRCS) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJSBONUS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+so: $(OBJS) $(OBJSBONUS)
+	$(CC) -nostartfiles -fPIC -I$(HEADERS) $(CFLAGS) $(SRCS) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
