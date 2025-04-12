@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 00:09:35 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/12 19:12:26 by amagno-r         ###   ########.fr       */
+/*   Created: 2025/04/12 19:17:21 by amagno-r          #+#    #+#             */
+/*   Updated: 2025/04/12 19:19:52 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr_fd(char *s, int fd)
+t_list *ft_lstnew(void *content)
 {
-	if(!s)
-		return ;
-	while(*s)
-		write(fd, s++, 1);
+	t_list *ret;
+	
+	ret = (t_list *)malloc(sizeof(t_list));
+	if (!ret)
+		return (NULL);
+	ret->content = content;
+	ret->next = NULL;
+	return (ret);
 }

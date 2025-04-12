@@ -6,7 +6,7 @@
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 19:04:18 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/10 22:43:20 by amagno-r         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:20:52 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define FT_LIB_H
 
 #include <stddef.h>
+
+typedef struct s_list
+{
+	void *content;
+	struct s_list *next;
+}	t_list;
 
 int	ft_strlen(char *str);
 int	ft_isascii(int c);
@@ -46,5 +52,6 @@ int     ft_memcmp(const void *s1, const void *s2, size_t n);
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(const char *s1, const char *s2);
 
+t_list *ft_lstnew(void *content);
 
 #endif

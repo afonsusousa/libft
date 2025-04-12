@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/10 22:09:44 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/12 19:26:42 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,19 @@ SRCS = 	srcs/ft_atoi.c \
 	srcs/ft_tolower.c \
 	srcs/ft_toupper.c 
 
+BONUS = bonus/ft_lstadd_back.c \
+	bonus/ft_lstadd_front.c \
+	bonus/ft_lstclear.c \
+	bonus/ft_lstdelone.c \
+	bonus/ft_lstiter.c \
+	bonus/ft_lstlast.c \
+	bonus/ft_lstmap.c \
+	bonus/ft_lstnew.c \
+	bonus/ft_lstsize.c
+
 OBJS = $(SRCS:.c=.o)
+
+OBJSBONUS = $(BONUS:.c=.o)
 
 HEADERS = includes
 
@@ -63,9 +75,9 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
-so:
-	$(CC) -nostartfiles -fPIC -I$(HEADERS) $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+so: $(OBJS) $(OBJSBONUS)
+	$(CC) -nostartfiles -fPIC -I$(HEADERS) $(CFLAGS) $(SRCS) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
 clean:
 	$(RM) $(OBJS)
 

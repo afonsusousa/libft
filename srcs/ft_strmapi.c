@@ -6,7 +6,7 @@
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:39:24 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/11 16:43:40 by amagno-r         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:11:09 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
+	if(!s)
+		return (0);
 	ret = ft_strdup(s);
 	if(!ret)
 		return (NULL);

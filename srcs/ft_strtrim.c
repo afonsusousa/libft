@@ -6,7 +6,7 @@
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 14:53:06 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/11 15:13:36 by amagno-r         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:10:22 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char *ft_strtrim(const char *s1, const char *set)
 	size_t	end;
 	char	*ret;
 
+	if (!s1 || !set)
+		return (0);
 	start = -1;
 	end = ft_strlen((char *)s1) + 1;
 	while(ft_inset(s1[++start], set))
