@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/12 19:45:08 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/12 23:31:25 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ OBJS = $(SRCS:.c=.o)
 
 OBJSBONUS = $(BONUS:.c=.o)
 
-HEADERS = includes
+HEADERS = .
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
