@@ -6,7 +6,7 @@
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 22:01:24 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/12 19:08:02 by amagno-r         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:14:55 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int		src_len;
 
 	if(!s)
-		return (0);
+		return (ft_strdup(""));
 	src_len = (unsigned int )ft_strlen((char *)s);
 	if(start >= src_len)
-		return ((char *)ft_calloc(1, 1));
+		return (ft_strdup(""));
 	if(start + len > src_len)
-		len -= len - start;
+		len = src_len - start;
 	ret = (char *)malloc(len + 1);
 	if(!ret)
 		return (NULL);

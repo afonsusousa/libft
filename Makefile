@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/12 23:31:25 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/14 19:10:03 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-so: $(OBJS) $(OBJSBONUS)
-	$(CC) -nostartfiles -fPIC -I$(HEADERS) $(CFLAGS) $(SRCS) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
