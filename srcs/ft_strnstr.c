@@ -15,26 +15,25 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	char *b;
+	char	*b;
 
 	b = (char *)big;
 	if (!len && !big)
 		return (NULL);
-	if(!(*little))
+	if (!(*little))
 		return ((char *)big);
-	while(*b && (size_t)(b - big) < len)
+	while (*b && (size_t)(b - big) < len)
 	{
 		i = 0;
 		while (b[i] == little[i] && b[i] && (b - big) + i < len)
 		{
-			if(little[i + 1] == 0)
+			if (little[i + 1] == 0)
 				return (b);
 			i++;
 		}
 		b++;
 	}
 	return (NULL);
-
 }
 
 /*

@@ -14,16 +14,16 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *ret;
+	char			*ret;
 	unsigned int	i;
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (0);
 	ret = ft_strdup(s);
-	if(!ret)
+	if (!ret)
 		return (NULL);
-	while(ret[i])
+	while (ret[i])
 	{
 		ret[i] = (*f)(i, ret[i]);
 		i++;

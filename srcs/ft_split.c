@@ -15,26 +15,26 @@
 
 static int	ft_count_words(const char *str, const char sep)
 {
-	size_t i;
-	int	words;
+	size_t	i;
+	int		words;
 
 	i = 0;
 	words = (str[0] != sep) && (str[0] != 0);
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == sep && str[i + 1] != sep && str[i + 1])
+		if (str[i] == sep && str[i + 1] != sep && str[i + 1])
 			words++;
 		i++;
 	}
 	return (words);
 }
 
-static	int ft_strlen_sep(const char *start, const char sep)
+static int	ft_strlen_sep(const char *start, const char sep)
 {
 	int	i;
-	
+
 	i = 0;
-	while(start[i] != sep && start[i])
+	while (start[i] != sep && start[i])
 		i++;
 	return (i);
 }
@@ -58,20 +58,20 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	word = -1;
-	if(!s)
+	if (!s)
 		return (0);
 	ret = (char **)ft_calloc(ft_count_words(s, c) + 1, sizeof(char *));
-	if(!ret)
+	if (!ret)
 		return (NULL);
-	while(s[i])
+	while (s[i])
 	{
 		word_len = 0;
-		if(s[i] != c && s[i])
+		if (s[i] != c && s[i])
 		{
 			word_len = ft_strlen_sep(&s[i], c);
 			ret[++word] = ft_substr(s, i, word_len);
-			if(!ret[word])
-				return(ft_free(ret), NULL);
+			if (!ret[word])
+				return (ft_free(ret), NULL);
 			i += word_len;
 		}
 		else

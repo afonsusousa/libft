@@ -15,18 +15,18 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ret;
-	unsigned int		src_len;
+	char			*ret;
+	unsigned int	src_len;
 
-	if(!s)
+	if (!s)
 		return (ft_strdup(""));
 	src_len = (unsigned int )ft_strlen((char *)s);
-	if(start >= src_len)
+	if (start >= src_len)
 		return (ft_strdup(""));
-	if(start + len > src_len)
+	if (start + len > src_len)
 		len = src_len - start;
 	ret = (char *)malloc(len + 1);
-	if(!ret)
+	if (!ret)
 		return (NULL);
 	ft_strlcpy(ret, (char *)&s[start], len + 1);
 	return (ret);

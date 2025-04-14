@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-static	long int ft_order(long int nb)
+static long int	ft_order(long int nb)
 {
 	int	order;
 
 	order = 1;
-	while(nb / 10 > 0)
+	while (nb / 10 > 0)
 	{
 		nb /= 10;
 		order++;
@@ -25,30 +25,30 @@ static	long int ft_order(long int nb)
 	return (order);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long int	nb;
 	long int	order;
-	int 		sign;
+	int			sign;
 	char		*ret;
 
 	nb = n;
 	sign = 0;
-	if(nb < 0)
+	if (nb < 0)
 	{
-		nb = -nb; 
+		nb = -nb;
 		sign = 1;
 	}
 	order = ft_order(nb) + sign;
 	ret = (char *)ft_calloc(order + 1, 1);
-	if(!ret)
+	if (!ret)
 		return (NULL);
-	while(order)
+	while (order)
 	{
 		ret[--order] = nb % 10 + '0';
 		nb /= 10;
 	}
-	if(sign)
+	if (sign)
 		ret[0] = '-';
 	return (ret);
 }

@@ -13,14 +13,14 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if(!(char)c)
+	if (!(char)c)
 		return ((char *)&s[ft_strlen(s)]);
 	while (*s)
 	{
 		if (*s == (char) c)
-			return ((char *)s); 
+			return ((char *)s);
 		s++;
 	}
 	return (NULL);
