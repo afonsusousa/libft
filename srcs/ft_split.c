@@ -69,8 +69,10 @@ char	**ft_split(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c && s[i])
+		{
 			if (!ft_inject_word(&ret[++word], &s[i], &i, c))
 				return (ft_free(ret), NULL);
+		}
 		else
 			i++;
 	}
