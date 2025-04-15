@@ -6,7 +6,7 @@
 /*   By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:44:36 by amagno-r          #+#    #+#             */
-/*   Updated: 2025/04/14 18:44:00 by amagno-r         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:12:03 by amagno-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,23 @@ static void	ft_free(char **ret)
 	free(ret);
 }
 
+static size_t	ft_inject_word(char **ret, const char *word, size_t *i, char c)
+{
+	size_t	word_len;
+
+	word_len = 0;
+	word_len = ft_strlen_sep(word, c);
+	*ret = ft_substr(word, 0, word_len);
+	if (!(*ret))
+		return (0);
+	*i += word_len;
+	return (word_len);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	word;
-	size_t	word_len;
 	char	**ret;
 
 	i = 0;
@@ -65,29 +77,26 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		word_len = 0;
 		if (s[i] != c && s[i])
 		{
-			word_len = ft_strlen_sep(&s[i], c);
-			ret[++word] = ft_substr(s, i, word_len);
-			if (!ret[word])
+			if (!ft_inject_word(&ret[++word], &s[i], &i, c))
 				return (ft_free(ret), NULL);
-			i += word_len;
 		}
 		else
 			i++;
 	}
 	return (ret);
 }
+
 /*
 #include <stdio.h>
 int main(int argc, char **argv)
 {
-	char **split = ft_split("hello!", ' '); 
-	for(int i = 0; i < ft_count_words("hello!", ' '); i++)
-		printf("letra qualquer %d %s\n", i, split[i]);
-//	char **split = ft_split(argv[1], argv[2][0]);
-//	for(int i = 0; i < ft_count_words(argv[1], argv[2][0]); i++)
-//		printf("%s\n", split[i]);
+	//char **split = ft_split("hello asd asd as d", ' '); 
+	//for(int i = 0; i < ft_count_words("hello!", ' '); i++)
+	//	printf("letra qualquer %d %s\n", i, split[i]);
+	char **split = ft_split(argv[1], argv[2][0]);
+	for(int i = 0; i < ft_count_words(argv[1], argv[2][0]); i++)
+		printf("%s\n", split[i]);
 }
 */
