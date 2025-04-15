@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/14 19:10:03 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/15 16:31:51 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,15 +47,15 @@ SRCS = 	srcs/ft_atoi.c \
 	srcs/ft_tolower.c \
 	srcs/ft_toupper.c 
 
-BONUS = bonus/ft_lstadd_back.c \
-	bonus/ft_lstadd_front.c \
-	bonus/ft_lstclear.c \
-	bonus/ft_lstdelone.c \
-	bonus/ft_lstiter.c \
-	bonus/ft_lstlast.c \
-	bonus/ft_lstmap.c \
-	bonus/ft_lstnew.c \
-	bonus/ft_lstsize.c
+BONUS = bonus/ft_lstadd_back_bonus.c \
+	bonus/ft_lstadd_front_bonus.c \
+	bonus/ft_lstclear_bonus.c \
+	bonus/ft_lstdelone_bonus.c \
+	bonus/ft_lstiter_bonus.c \
+	bonus/ft_lstlast_bonus.c \
+	bonus/ft_lstmap_bonus.c \
+	bonus/ft_lstnew_bonus.c \
+	bonus/ft_lstsize_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
