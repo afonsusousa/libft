@@ -67,12 +67,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-all: $(OBJS)
+all: $(NAME)
+
+$(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(OBJSBONUS)
+bonus: $(NAME) $(OBJSBONUS) 
 	ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
-
+	
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
