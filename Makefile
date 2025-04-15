@@ -6,7 +6,7 @@
 #    By: amagno-r <amagno-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 16:47:35 by amagno-r          #+#    #+#              #
-#    Updated: 2025/04/15 17:33:31 by amagno-r         ###   ########.fr        #
+#    Updated: 2025/04/15 23:54:50 by amagno-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,6 @@ OBJS = $(SRCS:.c=.o)
 
 OBJSBONUS = $(BONUS:.c=.o)
 
-HEADERS = .
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
@@ -76,7 +74,7 @@ bonus: $(NAME) $(OBJSBONUS)
 	ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
 	
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(OBJSBONUS)
