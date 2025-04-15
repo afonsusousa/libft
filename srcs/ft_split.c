@@ -29,16 +29,6 @@ static int	ft_count_words(const char *str, const char sep)
 	return (words);
 }
 
-static int	ft_strlen_sep(const char *start, const char sep)
-{
-	int	i;
-
-	i = 0;
-	while (start[i] != sep && start[i])
-		i++;
-	return (i);
-}
-
 static void	ft_free(char **ret)
 {
 	int	i;
@@ -54,7 +44,8 @@ static size_t	ft_inject_word(char **ret, const char *word, size_t *i, char c)
 	size_t	word_len;
 
 	word_len = 0;
-	word_len = ft_strlen_sep(word, c);
+	while (word[word_len] != c && word[word_len])
+		word_len++;
 	*ret = ft_substr(word, 0, word_len);
 	if (!(*ret))
 		return (0);
@@ -78,10 +69,8 @@ char	**ft_split(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c && s[i])
-		{
 			if (!ft_inject_word(&ret[++word], &s[i], &i, c))
 				return (ft_free(ret), NULL);
-		}
 		else
 			i++;
 	}
